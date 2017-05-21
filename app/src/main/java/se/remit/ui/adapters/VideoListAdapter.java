@@ -8,10 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import se.remit.BuildConfig;
 import se.remit.R;
 import se.remit.core.network.models.Video;
 
@@ -33,7 +36,11 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
     public void onBindViewHolder(VideoViewHolder holder, int position) {
         Video video = this.videoList.get(position);
         holder.title.setText(video.getTitle());
-        holder.subtitle.setText(video.getStudio());
+        holder.studio.setText(video.getStudio());
+
+        Glide.with(holder.itemView)
+                .load(BuildConfig.API_URL.concat(video.getSmallImage()))
+                .into(holder.image);
     }
 
     @Override
@@ -47,7 +54,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
         @BindView(R.id.title)
         public TextView title;
         @BindView(R.id.studio)
-        public TextView subtitle;
+        public TextView studio;
 
         public VideoViewHolder(View itemView) {
             super(itemView);

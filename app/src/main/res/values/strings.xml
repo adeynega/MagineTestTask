@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Magine</string>
+    <string name="reload_button">Reload</string>
+    <string name="error_loading_video_list">Error loading video list...</string>
 </resources>

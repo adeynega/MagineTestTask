@@ -29,6 +29,12 @@ android {
         }
     }
 
+    productFlavors {
+        production {
+            buildConfigField 'String', "API_URL", '"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/"'
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -51,5 +57,8 @@ dependencies {
     compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.jakewharton:butterknife:8.6.0'
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC0'
+    compile 'com.android.support:support-v4:25.3.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
 }

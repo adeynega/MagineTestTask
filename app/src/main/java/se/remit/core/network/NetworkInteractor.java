@@ -6,6 +6,7 @@ import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import se.remit.BuildConfig;
 import se.remit.core.network.models.Categories;
 
 public class NetworkInteractor {
@@ -13,7 +14,7 @@ public class NetworkInteractor {
 
     public NetworkInteractor() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/")
+                .baseUrl(BuildConfig.API_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
