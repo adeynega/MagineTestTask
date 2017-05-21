@@ -18,7 +18,9 @@ import se.remit.BuildConfig;
 import se.remit.R;
 import se.remit.core.network.models.Video;
 
-
+/**
+ * Video list adapter for RecyclerView (in Main activity)
+ */
 public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.VideoViewHolder> {
     private List<Video> videoList;
 
@@ -48,6 +50,9 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
         return this.videoList.size();
     }
 
+    /**
+     * Video item layout class
+     */
     public static class VideoViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.image)
         public ImageView image;

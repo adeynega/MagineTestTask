@@ -6,7 +6,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Categories {
+/**
+ * Categories root object model
+ */
+public class CategoriesRoot {
     @SerializedName("categories")
     @Expose
     private List<Category> categories = null;

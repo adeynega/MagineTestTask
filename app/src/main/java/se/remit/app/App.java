@@ -4,6 +4,9 @@ import android.app.Application;
 
 import se.remit.core.Interactor;
 
+/**
+ * Application class, holds some variables that should be available within app
+ */
 public class App extends Application {
     private Interactor interactor;
 

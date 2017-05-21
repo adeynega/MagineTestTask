@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * Category item model
+ */
 public class Category {
 
     @SerializedName("name")
