@@ -11,7 +11,7 @@ public class Interactor {
     private NetworkInteractor networkInteractor;
 
     public Interactor() {
-        this.networkInteractor = new NetworkInteractor();
+        networkInteractor = new NetworkInteractor();
     }
 
     /**
@@ -19,6 +19,6 @@ public class Interactor {
      @return CategoriesRoot observable
      */
     public Observable<Category> getCategories() {
-        return this.networkInteractor.getCategories();
+        return networkInteractor.getCategories();
     }
 }

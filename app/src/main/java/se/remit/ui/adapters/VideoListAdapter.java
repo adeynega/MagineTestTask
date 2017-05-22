@@ -36,7 +36,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
 
     @Override
     public void onBindViewHolder(VideoViewHolder holder, int position) {
-        Video video = this.videoList.get(position);
+        Video video = videoList.get(position);
         holder.title.setText(video.getTitle());
         holder.studio.setText(video.getStudio());
 
@@ -47,7 +47,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
 
     @Override
     public int getItemCount() {
-        return this.videoList.size();
+        return videoList.size();
     }
 
     /**

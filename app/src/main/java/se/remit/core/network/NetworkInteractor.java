@@ -25,7 +25,7 @@ public class NetworkInteractor {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
-        this.networkService = retrofit.create(NetworkService.class);
+        networkService = retrofit.create(NetworkService.class);
     }
 
     /**
@@ -33,7 +33,7 @@ public class NetworkInteractor {
      @return CategoriesRoot observable
      */
     public Observable<Category> getCategories() {
-        return this.networkService.getCategories()
+        return networkService.getCategories()
                 .flatMap(categories -> Observable.fromIterable(categories.getCategories()))
                 .subscribeOn(Schedulers.io());
     }

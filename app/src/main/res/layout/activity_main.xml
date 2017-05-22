@@ -37,7 +37,7 @@
         android:id="@+id/progressbar_wrapper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#80000000"
+        android:background="@color/progress_background"
         android:clickable="true"
         android:visibility="gone">
 

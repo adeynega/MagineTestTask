@@ -39,12 +39,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.disposable = new CompositeDisposable();
+        disposable = new CompositeDisposable();
 
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this); //Bind View objects to this activity's layout
 
-        this.interactor = ((App) getApplication()).getInteractor(); //Get Interactor instance
+        interactor = ((App) getApplication()).getInteractor(); //Get Interactor instance
 
         initUI();
         requestCategories();
@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        if (this.disposable != null && !this.disposable.isDisposed()) {
-            this.disposable.dispose();  //Dispose all operations
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();  //Dispose all operations
         }
     }
 
@@ -63,16 +63,16 @@ public class MainActivity extends AppCompatActivity {
      * Initialize user interface components and set listeners
      */
     private void initUI() {
-        this.videoList.setHasFixedSize(true);
-        this.videoList.setLayoutManager(new LinearLayoutManager(this));
-        this.reload.setOnClickListener(view -> requestCategories());
+        videoList.setHasFixedSize(true);
+        videoList.setLayoutManager(new LinearLayoutManager(this));
+        reload.setOnClickListener(view -> requestCategories());
     }
 
     /**
      * Request categories list from server
      */
     private void requestCategories() {
-        this.disposable.add(this.interactor.getCategories()
+        disposable.add(this.interactor.getCategories()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(disposable -> {
                     progressBar.setVisibility(View.VISIBLE);
@@ -92,15 +92,15 @@ public class MainActivity extends AppCompatActivity {
      * Show error text and reload button
      */
     private void switchToError() {
-        this.errorWrapper.setVisibility(View.VISIBLE);
-        this.videoList.setVisibility(View.GONE);
+        errorWrapper.setVisibility(View.VISIBLE);
+        videoList.setVisibility(View.GONE);
     }
 
     /**
      * Hide error and show video list
      */
     private void switchToVideoList() {
-        this.errorWrapper.setVisibility(View.GONE);
-        this.videoList.setVisibility(View.VISIBLE);
+        errorWrapper.setVisibility(View.GONE);
+        videoList.setVisibility(View.VISIBLE);
     }
 }
